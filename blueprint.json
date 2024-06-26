@@ -1,0 +1,1953 @@
+{
+    "name": "Nomads Onboarding (Wisnu)",
+    "flow": [
+        {
+            "id": 42,
+            "module": "google-sheets:watchRows",
+            "version": 2,
+            "parameters": {
+                "from": "share",
+                "mode": "select",
+                "limit": 1,
+                "sheetId": "Newly Onboarded Form",
+                "__IMTCONN__": 204207,
+                "spreadsheetId": "/1KK-GPU5l1ZMrvN0hhqKrqtxtKIqAM-E5T1wBsJK4GNs",
+                "tableFirstRow": "A1:AJ1",
+                "includesHeaders": true,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING"
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -1443,
+                    "y": 1744
+                },
+                "restore": {
+                    "parameters": {
+                        "from": {
+                            "label": "Shared With Me"
+                        },
+                        "mode": {
+                            "label": "Search by path"
+                        },
+                        "sheetId": {
+                            "label": "Newly Onboarded Form"
+                        },
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "Nomads Team (hello@nomadsgivingback.com)"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "Nomads Team Directory "
+                            ]
+                        },
+                        "includesHeaders": {
+                            "label": "Yes"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "text",
+                        "label": "Row with headers",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__ROW_NUMBER__",
+                        "type": "number",
+                        "label": "Row number"
+                    },
+                    {
+                        "name": "__SPREADSHEET_ID__",
+                        "type": "text",
+                        "label": "Spreadsheet ID"
+                    },
+                    {
+                        "name": "__SHEET__",
+                        "type": "text",
+                        "label": "Sheet"
+                    },
+                    {
+                        "name": "0",
+                        "type": "text",
+                        "label": "Timestamp (A)"
+                    },
+                    {
+                        "name": "1",
+                        "type": "text",
+                        "label": "Full Name (B)"
+                    },
+                    {
+                        "name": "2",
+                        "type": "text",
+                        "label": "What's Your Position Title? (C)"
+                    },
+                    {
+                        "name": "3",
+                        "type": "text",
+                        "label": "Team (D)"
+                    },
+                    {
+                        "name": "4",
+                        "type": "text",
+                        "label": "Current Location (City, Country) (E)"
+                    },
+                    {
+                        "name": "5",
+                        "type": "text",
+                        "label": "Email Address (F)"
+                    },
+                    {
+                        "name": "6",
+                        "type": "text",
+                        "label": "WhatsApp Number (add the area code) (G)"
+                    },
+                    {
+                        "name": "7",
+                        "type": "text",
+                        "label": "Date of Birth! (Birthday!) (H)"
+                    },
+                    {
+                        "name": "8",
+                        "type": "text",
+                        "label": "Country / Place of Birth (I)"
+                    },
+                    {
+                        "name": "9",
+                        "type": "text",
+                        "label": "Join our Slack Community! (You should have received an invite link to your email - click \"yes\" if you see it! (J)"
+                    },
+                    {
+                        "name": "10",
+                        "type": "text",
+                        "label": "Have you been invited to our monthly Global Team Calls? It's a great opportunity to introduce yourself to the global team and get to know our global community of impact advocates and life enthusiasts! (K)"
+                    },
+                    {
+                        "name": "11",
+                        "type": "text",
+                        "label": "Would you like to be mentioned across our social media platforms? It's a great opportunity to share the current projects that you're working on and ways that you can get involved:  (L)"
+                    },
+                    {
+                        "name": "12",
+                        "type": "text",
+                        "label": "Tell us about yourself, what's your story?  (M)"
+                    },
+                    {
+                        "name": "13",
+                        "type": "text",
+                        "label": "What Is Your Life Purpose? This year the United Nations set 17 purpose streams, from ending poverty, to greater equality, to protecting the planet. When you take the purpose test, you discover which of the 17 global goals is your No.1 purpose --> Take the Test! (http://purposetest.geniusu.com/) and share your result below! (N)"
+                    },
+                    {
+                        "name": "14",
+                        "type": "text",
+                        "label": "Upload a photo of yourself so we can add you to our \"Meet The Team\" sections of our website! (O)"
+                    },
+                    {
+                        "name": "15",
+                        "type": "text",
+                        "label": "Share your Facebook URL for the website! (P)"
+                    },
+                    {
+                        "name": "16",
+                        "type": "text",
+                        "label": "Share your Instagram URL for the website! (Q)"
+                    },
+                    {
+                        "name": "17",
+                        "type": "text",
+                        "label": "Share your LinkedIn URL for the website! (R)"
+                    },
+                    {
+                        "name": "18",
+                        "type": "text",
+                        "label": "Describe yourself in two sentences (like an Instagram caption) see these examples --> https://www.instagram.com/p/CI0lU84ITzO/ (S)"
+                    },
+                    {
+                        "name": "19",
+                        "type": "text",
+                        "label": "What makes you a citizen of the world? Why did you choose to leave your country of origin and become a global citizen? (T)"
+                    },
+                    {
+                        "name": "20",
+                        "type": "text",
+                        "label": "What makes you a citizen of the world? Why did you choose to leave your country of origin and become a global citizen? (U)"
+                    },
+                    {
+                        "name": "21",
+                        "type": "text",
+                        "label": "Imagine you win 1 Million USD in the lottery. What cause would you support? (V)"
+                    },
+                    {
+                        "name": "22",
+                        "type": "text",
+                        "label": "If you would have to teach someone your best skill, what would it be? (W)"
+                    },
+                    {
+                        "name": "23",
+                        "type": "text",
+                        "label": "What’s the most underrated country you've been to? (X)"
+                    },
+                    {
+                        "name": "24",
+                        "type": "text",
+                        "label": "What’s an act of kindness that you received and would always give to someone else? (Y)"
+                    },
+                    {
+                        "name": "25",
+                        "type": "text",
+                        "label": "What are your favorite books? (Z)"
+                    },
+                    {
+                        "name": "26",
+                        "type": "text",
+                        "label": "Share 4 pictures with us!  (AA)"
+                    },
+                    {
+                        "name": "27",
+                        "type": "text",
+                        "label": "What do you enjoy doing? What are your hobbies?  (AB)"
+                    },
+                    {
+                        "name": "28",
+                        "type": "text",
+                        "label": "What are your favorite podcasts? (AC)"
+                    },
+                    {
+                        "name": "29",
+                        "type": "text",
+                        "label": "Got any favorite documentaries surrounding social impact? (AD)"
+                    },
+                    {
+                        "name": "30",
+                        "type": "text",
+                        "label": "Who's your reporting manager? (If you work independently or as a freelancer / consultant, you can just put that). (AE)"
+                    },
+                    {
+                        "name": "31",
+                        "type": "text",
+                        "label": "Would you like to receive our monthly newsletter from Nomads Giving Back? (AF)"
+                    },
+                    {
+                        "name": "32",
+                        "type": "text",
+                        "label": "Would you like to receive our monthly newsletter from Nomads Skillshare? (AG)"
+                    },
+                    {
+                        "name": "33",
+                        "type": "text",
+                        "label": "Email Address (AH)"
+                    },
+                    {
+                        "name": "34",
+                        "type": "text",
+                        "label": "What made you curious about becoming a digital nomad? (AI)"
+                    },
+                    {
+                        "name": "35",
+                        "type": "text",
+                        "label": "What’s an act of kindness that you received and would always give to someone else? (AJ)"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 10,
+            "module": "slack:SearchUser",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 204225
+            },
+            "mapper": {
+                "email": "{{42.`5`}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": -949,
+                    "y": 1748
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "slack2"
+                            },
+                            "label": "User Onboarding (matej)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:slack2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "email",
+                        "type": "email",
+                        "label": "Email",
+                        "required": true
+                    }
+                ]
+            },
+            "onerror": [
+                {
+                    "id": 41,
+                    "module": "builtin:Break",
+                    "version": 1,
+                    "parameters": {},
+                    "mapper": {
+                        "count": "2",
+                        "retry": true,
+                        "interval": "15"
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": -649,
+                            "y": 1898
+                        },
+                        "restore": {
+                            "expect": {
+                                "retry": {
+                                    "mode": "chose"
+                                }
+                            }
+                        },
+                        "expect": [
+                            {
+                                "name": "retry",
+                                "type": "boolean",
+                                "label": "Automatically complete execution",
+                                "required": true
+                            },
+                            {
+                                "name": "count",
+                                "type": "uinteger",
+                                "label": "Number of attempts",
+                                "required": true,
+                                "validate": {
+                                    "max": 10000,
+                                    "min": 1
+                                }
+                            },
+                            {
+                                "name": "interval",
+                                "type": "uinteger",
+                                "label": "Interval between attempts",
+                                "required": true,
+                                "validate": {
+                                    "max": 44640,
+                                    "min": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": -649,
+                    "y": 1598
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 43,
+                            "module": "builtin:BasicRouter",
+                            "version": 1,
+                            "filter": {
+                                "name": "invite to main channels",
+                                "conditions": []
+                            },
+                            "mapper": null,
+                            "metadata": {
+                                "designer": {
+                                    "x": 290,
+                                    "y": 1289
+                                }
+                            },
+                            "routes": [
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 11,
+                                            "module": "slack:InviteUsers",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 204225
+                                            },
+                                            "mapper": {
+                                                "type": "private",
+                                                "users": "{{10.id}}",
+                                                "channel": "C013A9JM59T"
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 589,
+                                                    "y": 1466
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "type": {
+                                                            "label": "Private channel"
+                                                        },
+                                                        "users": {
+                                                            "mode": "edit"
+                                                        },
+                                                        "channel": {
+                                                            "mode": "chose",
+                                                            "label": "nomads_family"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "slack2"
+                                                            },
+                                                            "label": "User Onboarding (matej)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:slack2",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "name": "type",
+                                                        "type": "select",
+                                                        "label": "Channel type",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "public",
+                                                                "private"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "users",
+                                                        "type": "select",
+                                                        "label": "Users",
+                                                        "multiple": true,
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "channel",
+                                                        "type": "select",
+                                                        "label": "Private channel",
+                                                        "required": true
+                                                    }
+                                                ]
+                                            },
+                                            "onerror": [
+                                                {
+                                                    "id": 36,
+                                                    "module": "builtin:Ignore",
+                                                    "version": 1,
+                                                    "metadata": {
+                                                        "designer": {
+                                                            "x": 589,
+                                                            "y": 1772
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 44,
+                                            "module": "builtin:BasicRouter",
+                                            "version": 1,
+                                            "filter": {
+                                                "name": "nomads_family",
+                                                "conditions": []
+                                            },
+                                            "mapper": null,
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 831,
+                                                    "y": 1109
+                                                }
+                                            },
+                                            "routes": [
+                                                {
+                                                    "flow": [
+                                                        {
+                                                            "id": 12,
+                                                            "module": "slack:InviteUsers",
+                                                            "version": 4,
+                                                            "parameters": {
+                                                                "__IMTCONN__": 204225
+                                                            },
+                                                            "mapper": {
+                                                                "type": "private",
+                                                                "users": "{{10.id}}",
+                                                                "channel": "C013A9JM59T"
+                                                            },
+                                                            "metadata": {
+                                                                "designer": {
+                                                                    "x": 1100,
+                                                                    "y": 1346
+                                                                },
+                                                                "restore": {
+                                                                    "expect": {
+                                                                        "type": {
+                                                                            "label": "Private channel"
+                                                                        },
+                                                                        "users": {
+                                                                            "mode": "edit"
+                                                                        },
+                                                                        "channel": {
+                                                                            "mode": "chose",
+                                                                            "label": "nomads_family"
+                                                                        }
+                                                                    },
+                                                                    "parameters": {
+                                                                        "__IMTCONN__": {
+                                                                            "data": {
+                                                                                "scoped": "true",
+                                                                                "connection": "slack2"
+                                                                            },
+                                                                            "label": "User Onboarding (matej)"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "parameters": [
+                                                                    {
+                                                                        "name": "__IMTCONN__",
+                                                                        "type": "account:slack2",
+                                                                        "label": "Connection",
+                                                                        "required": true
+                                                                    }
+                                                                ],
+                                                                "expect": [
+                                                                    {
+                                                                        "name": "type",
+                                                                        "type": "select",
+                                                                        "label": "Channel type",
+                                                                        "required": true,
+                                                                        "validate": {
+                                                                            "enum": [
+                                                                                "public",
+                                                                                "private"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "name": "users",
+                                                                        "type": "select",
+                                                                        "label": "Users",
+                                                                        "multiple": true,
+                                                                        "required": true
+                                                                    },
+                                                                    {
+                                                                        "name": "channel",
+                                                                        "type": "select",
+                                                                        "label": "Private channel",
+                                                                        "required": true
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "onerror": [
+                                                                {
+                                                                    "id": 37,
+                                                                    "module": "builtin:Ignore",
+                                                                    "version": 1,
+                                                                    "metadata": {
+                                                                        "designer": {
+                                                                            "x": 1112,
+                                                                            "y": 1761
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "flow": [
+                                                        {
+                                                            "id": 14,
+                                                            "module": "builtin:BasicRouter",
+                                                            "version": 1,
+                                                            "mapper": null,
+                                                            "metadata": {
+                                                                "designer": {
+                                                                    "x": 1490,
+                                                                    "y": 989
+                                                                }
+                                                            },
+                                                            "routes": [
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 13,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "filter": {
+                                                                                "name": "if team Marketing",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "Marketing",
+                                                                                            "o": "text:equal:ci"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 0
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 15,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "If team Partnerships",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "Partnerships",
+                                                                                            "o": "text:contain:ci"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "G01HZGKP5L0"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 300
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "team_partnerships"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 16,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "if team Community",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "Community",
+                                                                                            "o": "text:contain:ci"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "C047R9DKLLU"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 600
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "team_community"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 17,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "if team Scholarships",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "Scholarships",
+                                                                                            "o": "text:contain:ci"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "C02ML3YTUF8"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 900
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "team_impact-scholarships"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 18,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "if team biz dev",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "{{10.id}}",
+                                                                                            "o": "text:equal"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "C03K831A6CD"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 1200
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "team_bizdev"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 19,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "if Volunteer Matching Program team",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "Volunteer Matching Program",
+                                                                                            "o": "text:contain:ci"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "G01LSG6EMRC"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 1500
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "team_impact-vmp"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "id": 25,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2903,
+                                                                                    "y": 1501
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 20,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "if team People & Culture",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "People & Culture (HR)",
+                                                                                            "o": "text:contain:ci"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "C01TY9A3WEN"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 1800
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "peopleculture-team"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "id": 23,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "invite to recruitment channel",
+                                                                                "conditions": []
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "G0160HE3U72"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2901,
+                                                                                    "y": 1798
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "recruitment"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "id": 24,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "recruitment-applicants channel",
+                                                                                "conditions": []
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "C02B392JM7V"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 3306,
+                                                                                    "y": 1796
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "recruitment-applicants"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 21,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "if team strategy",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "Strategy",
+                                                                                            "o": "text:equal:ci"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "C0567M0EF4P"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 2100
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "team_strategy"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "id": 26,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "invite to product team",
+                                                                                "conditions": []
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "C056K9M551B"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2901,
+                                                                                    "y": 2100
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "team_product"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "flow": [
+                                                                        {
+                                                                            "id": 27,
+                                                                            "module": "slack:InviteUsers",
+                                                                            "version": 4,
+                                                                            "parameters": {
+                                                                                "__IMTCONN__": 204225
+                                                                            },
+                                                                            "filter": {
+                                                                                "name": "if general project",
+                                                                                "conditions": [
+                                                                                    [
+                                                                                        {
+                                                                                            "a": "{{42.`3`}}",
+                                                                                            "b": "Project Manager (Overall)",
+                                                                                            "o": "text:equal:ci"
+                                                                                        }
+                                                                                    ]
+                                                                                ]
+                                                                            },
+                                                                            "mapper": {
+                                                                                "type": "private",
+                                                                                "users": "{{10.id}}",
+                                                                                "channel": "C056K9M551B"
+                                                                            },
+                                                                            "metadata": {
+                                                                                "designer": {
+                                                                                    "x": 2400,
+                                                                                    "y": 2400
+                                                                                },
+                                                                                "restore": {
+                                                                                    "expect": {
+                                                                                        "type": {
+                                                                                            "label": "Private channel"
+                                                                                        },
+                                                                                        "users": {
+                                                                                            "mode": "edit"
+                                                                                        },
+                                                                                        "channel": {
+                                                                                            "mode": "chose",
+                                                                                            "label": "team_product"
+                                                                                        }
+                                                                                    },
+                                                                                    "parameters": {
+                                                                                        "__IMTCONN__": {
+                                                                                            "data": {
+                                                                                                "scoped": "true",
+                                                                                                "connection": "slack2"
+                                                                                            },
+                                                                                            "label": "User Onboarding (matej)"
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "parameters": [
+                                                                                    {
+                                                                                        "name": "__IMTCONN__",
+                                                                                        "type": "account:slack2",
+                                                                                        "label": "Connection",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ],
+                                                                                "expect": [
+                                                                                    {
+                                                                                        "name": "type",
+                                                                                        "type": "select",
+                                                                                        "label": "Channel type",
+                                                                                        "required": true,
+                                                                                        "validate": {
+                                                                                            "enum": [
+                                                                                                "public",
+                                                                                                "private"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "users",
+                                                                                        "type": "select",
+                                                                                        "label": "Users",
+                                                                                        "multiple": true,
+                                                                                        "required": true
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "channel",
+                                                                                        "type": "select",
+                                                                                        "label": "Private channel",
+                                                                                        "required": true
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 31,
+                            "module": "slack:InviteUsers",
+                            "version": 4,
+                            "parameters": {
+                                "__IMTCONN__": 204225
+                            },
+                            "filter": {
+                                "name": "if leadership team",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{42.`2`}}",
+                                            "b": "Head of",
+                                            "o": "text:contain:ci"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "type": "private",
+                                "users": "{{10.id}}",
+                                "channel": "C01T6CFNYUD"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 900,
+                                    "y": 3000
+                                },
+                                "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "User Onboarding (matej)",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "slack2"
+                                            }
+                                        }
+                                    },
+                                    "expect": {
+                                        "type": {
+                                            "label": "Private channel"
+                                        },
+                                        "users": {
+                                            "mode": "edit"
+                                        },
+                                        "channel": {
+                                            "mode": "chose",
+                                            "label": "sr-leadership"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:slack2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Channel type",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "public",
+                                                "private"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "users",
+                                        "type": "select",
+                                        "label": "Users",
+                                        "required": true,
+                                        "multiple": true
+                                    },
+                                    {
+                                        "name": "channel",
+                                        "type": "select",
+                                        "label": "Private channel",
+                                        "required": true
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 4,
+                            "module": "trello:assignMemberToABoard",
+                            "version": 4,
+                            "parameters": {
+                                "__IMTCONN__": 204295
+                            },
+                            "filter": {
+                                "name": "add to trello",
+                                "conditions": []
+                            },
+                            "mapper": {
+                                "board_id": "62b02cefb806ac66285bf7f6",
+                                "email": "{{42.`5`}}",
+                                "type": "normal",
+                                "name": "{{42.`1`}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 3000
+                                },
+                                "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "User Onboarding (matejradish)",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "trello"
+                                            }
+                                        }
+                                    },
+                                    "expect": {
+                                        "board_id": {
+                                            "mode": "chose",
+                                            "label": "Nomads Team (Nomads)"
+                                        },
+                                        "type": {
+                                            "mode": "chose",
+                                            "label": "Normal"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:trello",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "board_id",
+                                        "type": "select",
+                                        "label": "Board ID",
+                                        "mode": "edit",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "email",
+                                        "type": "email",
+                                        "label": "Email address",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "type",
+                                        "type": "select",
+                                        "label": "Member type",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "admin",
+                                                "normal",
+                                                "observer"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Full name"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": true,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": [],
+            "notes": [
+                {
+                    "id": 10,
+                    "text": "",
+                    "filter": false
+                },
+                {
+                    "id": 10,
+                    "text": "test",
+                    "filter": false
+                }
+            ]
+        },
+        "zone": "eu2.make.com"
+    }
+}
